@@ -1,0 +1,9 @@
+cd ~/.ssh
+ls -ltr
+ssh-keygen
+enter
+enter
+enter    #default we have to press enter
+ll
+cat id_rsa.pub       #public key data will be displyed
+

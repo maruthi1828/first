@@ -1,0 +1,209 @@
+Using username "ec2-user".
+Authenticating with public key "imported-openssh-key"
+Last login: Tue Aug 16 05:52:33 2022 from 43.254.163.24
+
+       __|  __|_  )
+       _|  (     /   Amazon Linux 2 AMI
+      ___|\___|___|
+
+https://aws.amazon.com/amazon-linux-2/
+[ec2-user@ip-172-31-4-170 ~]$ pwd
+/home/ec2-user
+[ec2-user@ip-172-31-4-170 ~]$ ls
+first  firstt
+[ec2-user@ip-172-31-4-170 ~]$ cd first
+[ec2-user@ip-172-31-4-170 first]$ ll
+total 8
+-rw-rw-r-- 1 ec2-user ec2-user   81 Aug 16 06:01 sample.txt
+-rw-rw-r-- 1 ec2-user ec2-user 1228 Aug 16 06:13 test.txt
+[ec2-user@ip-172-31-4-170 first]$ git --version
+git version 2.37.1
+[ec2-user@ip-172-31-4-170 first]$ git init
+Reinitialized existing Git repository in /home/ec2-user/first/.git/
+[ec2-user@ip-172-31-4-170 first]$ git add .
+[ec2-user@ip-172-31-4-170 first]$ git status
+On branch master
+nothing to commit, working tree clean
+[ec2-user@ip-172-31-4-170 first]$ git commit -m "my  files"
+On branch master
+nothing to commit, working tree clean
+[ec2-user@ip-172-31-4-170 first]$ git push origin master
+Warning: Permanently added the ECDSA host key for IP address '192.30.255.112' to the list of known hosts.
+Permission denied (publickey).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+[ec2-user@ip-172-31-4-170 first]$ git remote
+origin
+[ec2-user@ip-172-31-4-170 first]$
+[ec2-user@ip-172-31-4-170 first]$ git remote -v
+origin  git@github.com:maruthi1828/first.git (fetch)
+origin  git@github.com:maruthi1828/first.git (push)
+[ec2-user@ip-172-31-4-170 first]$ git push origin master
+Permission denied (publickey).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+[ec2-user@ip-172-31-4-170 first]$ ^C
+[ec2-user@ip-172-31-4-170 first]$ cat ~./ssh
+cat: ~./ssh: No such file or directory
+[ec2-user@ip-172-31-4-170 first]$ cat ~/.ssh
+cat: /home/ec2-user/.ssh: Is a directory
+[ec2-user@ip-172-31-4-170 first]$ cd ~/.ssh
+[ec2-user@ip-172-31-4-170 .ssh]$ ls
+authorized_keys  known_hosts
+[ec2-user@ip-172-31-4-170 .ssh]$ ll
+total 8
+-rw------- 1 ec2-user ec2-user 387 Aug 15 17:05 authorized_keys
+-rw-r--r-- 1 ec2-user ec2-user 363 Aug 16 06:29 known_hosts
+[ec2-user@ip-172-31-4-170 .ssh]$ ssh-keygen
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/ec2-user/.ssh/id_rsa): ll
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Passphrases do not match.  Try again.
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Passphrases do not match.  Try again.
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in ll.
+Your public key has been saved in ll.pub.
+The key fingerprint is:
+SHA256:yR7pv8qMwSNwbtvOpQi1Q4CluoPTkRebW6OLVbuI2h0 ec2-user@ip-172-31-4-170.us-west-2.compute.internal
+The key's randomart image is:
++---[RSA 2048]----+
+|  .              |
+| +               |
+|o . .            |
+|.  o + . o       |
+|. + B + S        |
+|.o O B = .       |
+|= o E = +        |
+| + B @ X .       |
+|..+ *.B +.o.     |
++----[SHA256]-----+
+[ec2-user@ip-172-31-4-170 .ssh]$ git push origin master
+fatal: not a git repository (or any of the parent directories): .git
+[ec2-user@ip-172-31-4-170 .ssh]$ ll
+total 16
+-rw------- 1 ec2-user ec2-user  387 Aug 15 17:05 authorized_keys
+-rw-r--r-- 1 ec2-user ec2-user  363 Aug 16 06:29 known_hosts
+-rw------- 1 ec2-user ec2-user 1679 Aug 16 06:40 ll
+-rw-r--r-- 1 ec2-user ec2-user  433 Aug 16 06:40 ll.pub
+[ec2-user@ip-172-31-4-170 .ssh]$ cd first
+-bash: cd: first: No such file or directory
+[ec2-user@ip-172-31-4-170 .ssh]$ cd
+[ec2-user@ip-172-31-4-170 ~]$ cd first
+[ec2-user@ip-172-31-4-170 first]$ ll
+total 8
+-rw-rw-r-- 1 ec2-user ec2-user   81 Aug 16 06:01 sample.txt
+-rw-rw-r-- 1 ec2-user ec2-user 1228 Aug 16 06:13 test.txt
+[ec2-user@ip-172-31-4-170 first]$ git add .
+[ec2-user@ip-172-31-4-170 first]$ git commit -m "first"
+On branch master
+nothing to commit, working tree clean
+[ec2-user@ip-172-31-4-170 first]$ git push origin master
+Permission denied (publickey).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+[ec2-user@ip-172-31-4-170 first]$ git remote add
+usage: git remote add [<options>] <name> <url>
+
+    -f, --fetch           fetch the remote branches
+    --tags                import all tags and associated objects when fetching
+                          or do not fetch any tag at all (--no-tags)
+    -t, --track <branch>  branch(es) to track
+    -m, --master <branch>
+                          master branch
+    --mirror[=(push|fetch)]
+                          set up remote as a mirror to push to or fetch from
+
+[ec2-user@ip-172-31-4-170 first]$ git remote add origin https://github.com/maruthi1828/first.git
+error: remote origin already exists.
+[ec2-user@ip-172-31-4-170 first]$ git push origin master
+Permission denied (publickey).
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+[ec2-user@ip-172-31-4-170 first]$ git remote add origin git@github.com:maruthi1828/first.git
+error: remote origin already exists.
+[ec2-user@ip-172-31-4-170 first]$ cd
+[ec2-user@ip-172-31-4-170 ~]$ sudo su -
+Last login: Mon Aug 15 17:48:57 UTC 2022 on pts/0
+[root@ip-172-31-4-170 ~]# touch file11.txt
+[root@ip-172-31-4-170 ~]# cat file11.txt
+[root@ip-172-31-4-170 ~]# ll
+total 0
+-rw-r--r-- 1 root root  0 Aug 16 06:52 file11.txt
+drwxr-xr-x 2 root root  6 Aug 15 17:15 git
+drwxr-xr-x 3 root root 32 Aug 15 17:50 onetwo
+[root@ip-172-31-4-170 ~]# git add .
+fatal: not a git repository (or any of the parent directories): .git
+[root@ip-172-31-4-170 ~]# cd onetwo
+[root@ip-172-31-4-170 onetwo]# ll
+total 4
+-rw-r--r-- 1 root root 141 Aug 15 17:49 onetwo
+[root@ip-172-31-4-170 onetwo]# vi three.txt
+[root@ip-172-31-4-170 onetwo]# git status
+On branch main
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        three.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+[root@ip-172-31-4-170 onetwo]# git add three.txt
+[root@ip-172-31-4-170 onetwo]# vi four.txt
+[root@ip-172-31-4-170 onetwo]# git status
+On branch main
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   three.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        four.txt
+
+[root@ip-172-31-4-170 onetwo]# git add four.txt
+[root@ip-172-31-4-170 onetwo]# git commit -m "threefour"
+[main 746bd6c] threefour
+ 2 files changed, 28 insertions(+)
+ create mode 100644 four.txt
+ create mode 100644 three.txt
+[root@ip-172-31-4-170 onetwo]# git push origin master
+Username for 'https://gitlab.com': maruthi1828
+Password for 'https://maruthi1828@gitlab.com':
+remote: HTTP Basic: Access denied
+fatal: Authentication failed for 'https://gitlab.com/m18281/mm.git/'
+[root@ip-172-31-4-170 onetwo]# git remote -v
+origin  https://gitlab.com/m18281/mm.git (fetch)
+origin  https://gitlab.com/m18281/mm.git (push)
+[root@ip-172-31-4-170 onetwo]# git remote add origin git@github.com:maruthi1828/                                                                             first.git
+error: remote origin already exists.
+[root@ip-172-31-4-170 onetwo]# git remote set-url origin git@github.com:maruthi1                                                                             828/first.git
+[root@ip-172-31-4-170 onetwo]# git remote -v
+origin  git@github.com:maruthi1828/first.git (fetch)
+origin  git@github.com:maruthi1828/first.git (push)
+[root@ip-172-31-4-170 onetwo]# git push origin master
+The authenticity of host 'github.com (192.30.255.113)' can't be established.
+ECDSA key fingerprint is SHA256:p2QAMXNIC1TJYWeIOttrVc98/R1BUFWu3/LiyKgUfQM.
+ECDSA key fingerprint is MD5:7b:99:81:1e:4c:91:a5:0d:5a:2e:2e:80:13:3f:24:ca.
+Are you sure you want to continue connecting (yes/no)? yes
+Warning: Permanently added 'github.com,192.30.255.113' (ECDSA) to the list of kn                                                                             own hosts.
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Compressing objects: 100% (2/2), done.
+Writing objects: 100% (3/3), 308 bytes | 308.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+remote:
+remote: Create a pull request for 'master' on GitHub by visiting:
+remote:      https://github.com/maruthi1828/first/pull/new/master
+remote:
+To github.com:maruthi1828/first.git
+ * [new branch]      master -> master
+

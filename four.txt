@@ -1,0 +1,27 @@
+[ec2-user@ip-172-31-4-170 first]$ vi sample.txt
+[ec2-user@ip-172-31-4-170 first]$ ls -ltra
+total 4
+-rw-rw-r-- 1 ec2-user ec2-user  81 Aug 16 06:01 sample.txt
+drwx------ 5 ec2-user ec2-user 138 Aug 16 06:01 ..
+drwxrwxr-x 2 ec2-user ec2-user  24 Aug 16 06:01 .
+[ec2-user@ip-172-31-4-170 first]$ git status
+fatal: not a git repository (or any of the parent directories): .git
+[ec2-user@ip-172-31-4-170 first]$ git init
+hint: Using 'master' as the name for the initial branch. This default branch name
+hint: is subject to change. To configure the initial branch name to use in all
+hint: of your new repositories, which will suppress this warning, call:
+hint:
+hint:   git config --global init.defaultBranch <name>
+hint:
+hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+hint: 'development'. The just-created branch can be renamed via this command:
+hint:
+hint:   git branch -m <name>
+Initialized empty Git repository in /home/ec2-user/first/.git/
+[ec2-user@ip-172-31-4-170 first]$ ls -ltra
+total 4
+-rw-rw-r-- 1 ec2-user ec2-user  81 Aug 16 06:01 sample.txt
+drwx------ 5 ec2-user ec2-user 138 Aug 16 06:01 ..
+drwxrwxr-x 7 ec2-user ec2-user 119 Aug 16 06:03 .git
+drwxrwxr-x 3 ec2-user ec2-user  36 Aug 16 06:03 .
+
